@@ -13,3 +13,18 @@ The image automatically setup and configures:
 * swap
 * openssh server
 * root partition auto-expand on first boot
+
+## Purpose of the fork
+
+- [ ] Make the Raspberry Pi image as vanilla as possible
+  - [ ] Remove/Optional WiFi
+  - [ ] Remove/Optional Bluetooth
+  - [ ] Minimize installed packages
+  - [ ] Remove/Optional SUDO
+  - [ ] Remove/Optional hostname
+- [ ] Build Google Cloud image
+- [ ] Add SSH public key
+- [ ] Parametrize build
+  - [ ] Timezone
+  - [ ] User / password
+  - [ ] Root password
