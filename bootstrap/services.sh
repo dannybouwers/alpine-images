@@ -2,7 +2,7 @@
 
 set -xe
 
-apk add openssh haveged
+apk add --no-cache openssh haveged
 
 for service in devfs dmesg mdev; do
 	rc-update add $service sysinit

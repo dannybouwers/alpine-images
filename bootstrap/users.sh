@@ -4,7 +4,7 @@ set -xe
 
 FIRST_USER_NAME=pi
 
-apk add sudo
+apk add --no-cache sudo
 
 for GRP in spi i2c gpio; do
 	addgroup --system $GRP

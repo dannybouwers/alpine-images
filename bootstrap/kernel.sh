@@ -29,5 +29,5 @@ cat <<EOF > /etc/fstab
 /dev/mmcblk0p2  /               ext4    defaults,noatime  0       1
 EOF
 
-apk add linux-rpi linux-rpi4 raspberrypi-bootloader
+apk add --no-cache linux-rpi linux-rpi4 raspberrypi-bootloader
 cd /boot/dtbs-rpi && find -type f \( -name "*.dtb" -o -name "*.dtbo" \) | cpio -pudm /boot
