@@ -1,23 +1,23 @@
-on:
+on: 
   push:
-    branches:
-      - master
+    tags:
+    - '*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout code
+      uses: actions/checkout@v1
 
-    - run: |
-        docker build runner -t runner
-        docker run --privileged --rm -v /dev:/dev:ro -v "$PWD":/runner -w /runner -e ALPINE_BRANCH=latest-stable -e ALPINE_MIRROR="http://dl-cdn.alpinelinux.org/alpine" -e ARCH=aarch64 runner ./make-image
+    - name: Build runner
+      run: docker build runner -t runner
 
-    - env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        sudo snap install hub --classic
-        build_date=$(date +%Y%m%d)
-        build_number=$[$(git tag | grep $build_date | wc -l) + 1]
-        tag="$build_date.$build_number"
-        hub release create $tag -m "$tag" -a dist/*.gz
+    - name: Make image
+      run: docker run --privileged --rm -v /dev:/dev:ro -v "$PWD":/runner -w /runner -e ALPINE_BRANCH=latest-stable -e ALPINE_MIRROR="http://dl-cdn.alpinelinux.org/alpine" -e ARCH=aarch64 runner ./make-image
+    
+    - name: Create release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "dist/*.gz"
+        token: ${{ secrets.GITHUB_TOKEN }}
