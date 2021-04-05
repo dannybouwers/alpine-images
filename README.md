@@ -4,8 +4,8 @@ This is a system install of Alpine linux for Raspberry Pi 3B, 3B+ and 4 image re
 
 The image automatically setup and configures:
 
-* root user [pwd: raspberry]
-* pi user [pwd: raspberry]
+* root user [pwd: changeme]
+* ~pi user [pwd: raspberry]~
 * ethernet
 * wifi (edit `wpa_supplicant.conf` in the boot partition, on first boot it will be copied)
 * bluetooth
@@ -16,15 +16,15 @@ The image automatically setup and configures:
 
 ## Purpose of the fork
 
-- [ ] Make the Raspberry Pi image as vanilla as possible
-  - [ ] Remove/Optional WiFi
-  - [ ] Remove/Optional Bluetooth
+- [ ] Make the Raspberry Pi image as minimal as possible
+  - [ ] Remove WiFi
+  - [ ] Remove Bluetooth
   - [ ] Minimize installed packages
-  - [ ] Remove/Optional SUDO
-  - [ ] Remove/Optional hostname
+  - [x] Remove SUDO
+  - [x] Remove pi-user
 - [ ] Build Google Cloud image
-- [ ] Add SSH public key
+- [ ] Enable SSH login
 - [ ] Parametrize build
   - [ ] Timezone
-  - [ ] User / password
+  - [ ] Keyboard layout
   - [ ] Root password
