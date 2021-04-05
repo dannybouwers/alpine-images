@@ -30,4 +30,4 @@ cat <<EOF > /etc/fstab
 EOF
 
 apk add --no-cache linux-rpi linux-rpi4 raspberrypi-bootloader
-cd /boot/dtbs-rpi && find -type f \( -name "*.dtb" -o -name "*.dtbo" \) | cpio -pudm /boot
+cd /boot/dtbs-rpi || cd /boot/overlays && find -type f \( -name "*.dtb" -o -name "*.dtbo" \) | cpio -pudm /boot
