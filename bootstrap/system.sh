@@ -6,8 +6,8 @@ TARGET_HOSTNAME="raspberrypi"
 TARGET_PASSWORD="changeme"
 TARGET_TIMEZONE="Europe/Amsterdam"
 TARGET_LOCALE="us-us"
-LAYOUT="$( cut -d '-' -f 1 <<< "$LOCALE" )";
-LAYOUT_SPEC="$( cut -d '-' -f 2 <<< "$LOCALE" )";
+LAYOUT=$(echo $LOCALE | cut -d'-' -f 1);
+LAYOUT_SPEC=$(echo $LOCALE | cut -d'-' -f 2);
 
 
 # base stuff
