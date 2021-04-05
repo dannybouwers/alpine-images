@@ -2,7 +2,7 @@
 
 set -xe
 
-apk add dosfstools e2fsprogs-extra parted
+apk add --no-cache dosfstools e2fsprogs-extra parted
 
 cat <<EOF > /usr/bin/first-boot
 #!/bin/sh
