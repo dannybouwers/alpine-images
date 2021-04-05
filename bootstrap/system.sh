@@ -13,10 +13,16 @@ LAYOUT_SPEC=$(echo $LOCALE | cut -d'-' -f 2);
 # base stuff
 apk add --no-cache ca-certificates
 update-ca-certificates
+
+# password
 echo "root:${TARGET_PASSWORD}" | chpasswd
-setup-hostname ${TARGET_HOSTNAME}
-setup-keymap $LAYOUT $LAYOUT_SPEC
+
+# hostname
+setup-hostname "${TARGET_HOSTNAME}"
+
+# keymap
+setup-keymap "${LAYOUT}" "${LAYOUT_SPEC}"
 
 # time
 apk add --no-cache chrony tzdata
-setup-timezone -z ${TARGET_TIMEZONE}
+setup-timezone -z "${TARGET_TIMEZONE}"

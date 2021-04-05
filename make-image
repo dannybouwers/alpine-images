@@ -43,16 +43,15 @@ IMGID="$(dd if="${OUTPUT_IMG}" skip=440 bs=1 count=4 2>/dev/null | xxd -e | cut 
 BOOT_PARTUUID="${IMGID}-01"
 ROOT_PARTUUID="${IMGID}-02"
 
-apt-get update
 curl https://raw.githubusercontent.com/alpinelinux/alpine-chroot-install/master/alpine-chroot-install | sh
 
 cp -R bootstrap/ /alpine/
 
 /alpine/enter-chroot /bootstrap/kernel.sh
 /alpine/enter-chroot /bootstrap/system.sh
-/alpine/enter-chroot /bootstrap/users.sh
 /alpine/enter-chroot /bootstrap/networking.sh
 /alpine/enter-chroot /bootstrap/services.sh
+/alpine/enter-chroot /bootstrap/users.sh
 /alpine/enter-chroot /bootstrap/first-boot.sh
 
 rm -rf /alpine/var/lib/apt/lists/*

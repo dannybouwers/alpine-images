@@ -2,7 +2,7 @@
 
 set -xe
 
-apk add --no-cache openssh haveged
+apk add --no-cache openssh
 
 for service in devfs dmesg mdev; do
 	rc-update add $service sysinit
@@ -12,7 +12,7 @@ for service in modules sysctl hostname bootmisc swclock syslog swap; do
 	rc-update add $service boot
 done
 
-for service in dbus haveged sshd chronyd local networking avahi-daemon bluetooth wpa_supplicant wpa_cli; do
+for service in dbus sshd chronyd local networking avahi-daemon; do
 	rc-update add $service default
 done
 
