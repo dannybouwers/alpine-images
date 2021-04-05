@@ -18,10 +18,10 @@ The image automatically setup and configures:
 
 ## Purpose of the fork
 
-- [ ] Make the Raspberry Pi image as minimal as possible
+- [x] Make the Raspberry Pi image as minimal and close to original as possible
   - [x] Remove WiFi
   - [x] Remove Bluetooth
-  - [ ] Minimize installed packages
+  - [x] Minimize installed packages
   - [x] Remove SUDO
   - [x] Remove pi-user
 - [ ] Build Google Cloud image
@@ -30,3 +30,4 @@ The image automatically setup and configures:
   - [ ] Timezone
   - [ ] Keyboard layout
   - [ ] Root password
+  - [ ] Installation device name
