@@ -25,9 +25,14 @@ The image automatically setup and configures:
   - [x] Remove SUDO
   - [x] Remove pi-user
 - [ ] Build Google Cloud image
+  - [ ] GRUB
+  - [ ] SSH config
+  - [ ] Network
+  - [ ] Timezone & Clock
+  - [ ] [Google Compute Engine guest environment](https://pypi.org/project/google-compute-engine/)
 - [x] Enable SSH login
 - [ ] Parametrize build
   - [ ] Timezone
   - [ ] Keyboard layout
   - [ ] Root password
-  - [ ] Installation device name
+  - [x] Installation device name

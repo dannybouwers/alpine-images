@@ -13,8 +13,17 @@ jobs:
     - name: Build runner
       run: docker build runner -t runner
 
-    - name: Make image
-      run: docker run --privileged --rm -v /dev:/dev:ro -v "$PWD":/runner -w /runner -e ALPINE_BRANCH=latest-stable -e ALPINE_MIRROR="http://dl-cdn.alpinelinux.org/alpine" -e ARCH=aarch64 runner ./make-image
+    - name: Make Raspberry Pi image
+      run: >
+        docker run --privileged --rm 
+        -v /dev:/dev:ro 
+        -v "$PWD":/runner 
+        -w /runner 
+        -e ALPINE_BRANCH=latest-stable 
+        -e ALPINE_MIRROR="http://dl-cdn.alpinelinux.org/alpine" 
+        -e ARCH=aarch64
+        -e RUNNER_DEVICE_NAME=mmcblk0
+        runner ./make-image
     
     - name: Create release
       uses: ncipollo/release-action@v1

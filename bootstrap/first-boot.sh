@@ -1,5 +1,24 @@
 #!/bin/sh
 
+#---help---
+# Usage: first-boot.sh <device_name>
+#
+# Generate script to expand second partition on first boot
+#
+# Example:
+#   enter-chroot /bootstrap/first-boot.sh mmcblk0
+#
+# Arguments:
+#   <device_name>   Mandatory device reference. Partition number is added by the script. Eg mmcblk0 for RPi SD-card
+#---help---
+
+
+local DEVICE_NAME
+local PARTITION_PREFIX
+
+DEVICE_NAME="${1}"
+[ "$DEVICE_NAME" != "${DEVICE_NAME#mmc}" ] && PARTITION_PREFIX="p" || PARTITION_PREFIX=""
+
 set -xe
 
 apk add --no-cache dosfstools e2fsprogs-extra parted
@@ -8,7 +27,7 @@ cat <<EOF > /usr/bin/first-boot
 #!/bin/sh
 set -xe
 
-cat <<PARTED | parted ---pretend-input-tty /dev/mmcblk0
+cat <<PARTED | parted ---pretend-input-tty /dev/${DEVICE_NAME}
 unit %
 resizepart 2
 Yes
@@ -16,7 +35,7 @@ Yes
 PARTED
 
 partprobe
-resize2fs /dev/mmcblk0p2
+resize2fs /dev/${DEVICE_NAME}${PARTITION_PREFIX}2
 rc-update del first-boot
 rm /etc/init.d/first-boot /usr/bin/first-boot
 
