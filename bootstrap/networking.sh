@@ -15,4 +15,4 @@ hostname ${TARGET_HOSTNAME}
 EOF
 
 # avahi
-apk add --no-cache avahi
+apk add --no-cache dbus avahi
