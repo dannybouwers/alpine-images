@@ -12,7 +12,6 @@
 #   <device_name>   Device reference. Partition numbers are added by the script.
 #---help---
 
-local DEVICE_NAME
 DEVICE_NAME="${1}"
 
 set -xe

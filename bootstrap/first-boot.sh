@@ -12,10 +12,6 @@
 #   <device_name>   Mandatory device reference. Partition number is added by the script. Eg mmcblk0 for RPi SD-card
 #---help---
 
-
-local DEVICE_NAME
-local PARTITION_PREFIX
-
 DEVICE_NAME="${1}"
 [ "$DEVICE_NAME" != "${DEVICE_NAME#mmc}" ] && PARTITION_PREFIX="p" || PARTITION_PREFIX=""
 
