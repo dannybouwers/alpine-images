@@ -8,4 +8,4 @@ done
 
 # enable root ssh
 apk add --no-cache openssh
-sed -i 's|^PermitRootLogin no$|PermitRootLogin yes|g' /etc/ssh/sshd_config
+sed -i 's|^PermitRootLogin .*$|PermitRootLogin yes|g' /etc/ssh/sshd_config
