@@ -10,7 +10,7 @@ for service in modules sysctl hostname bootmisc swclock syslog swap networking u
 	rc-update add $service boot
 done
 
-for service in acpid sshd chronyd avahi-daemon; do
+for service in dbus acpid sshd chronyd avahi-daemon; do
 	rc-update add $service default
 done
 
