@@ -28,3 +28,17 @@ apk add --no-cache chrony tzdata
 setup-timezone -z "${TARGET_TIMEZONE}"
 rc-update add swclock boot
 rc-update add chronyd default
+
+# message of the day
+cat > /etc/motd <<EOF
+Welcome to Alpine!
+
+The Alpine Wiki contains a large amount of how-to guides and general
+information about administrating Alpine systems.
+See <http://wiki.alpinelinux.org>.
+
+This is an unofficial image. Issues can be reported at 
+https://github.com/dannybouwers/alpine-images/issues
+
+You may change this message by editing /etc/motd.
+EOF
