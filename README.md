@@ -9,7 +9,7 @@ The image automatically setup and configures:
 * ethernet
 * ~wifi (edit `wpa_supplicant.conf` in the boot partition, on first boot it will be copied)~
 * ~bluetooth~
-* avahi
+* ~avahi~
 * swap
 * openssh server
 * root partition auto-expand on first boot
@@ -36,3 +36,4 @@ The image automatically setup and configures:
   - [ ] Keyboard layout
   - [ ] Root password
   - [x] Installation device name
+  - [ ] SWAP size

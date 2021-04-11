@@ -13,6 +13,3 @@ iface eth0 inet dhcp
   
 hostname ${TARGET_HOSTNAME}  
 EOF
-
-# avahi
-apk add --no-cache dbus avahi

@@ -26,3 +26,5 @@ setup-keymap "${LAYOUT}" "${LAYOUT_SPEC}"
 # time
 apk add --no-cache chrony tzdata
 setup-timezone -z "${TARGET_TIMEZONE}"
+rc-update add swclock boot
+rc-update add chronyd default
