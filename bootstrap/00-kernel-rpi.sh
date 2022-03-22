@@ -1,12 +1,12 @@
 #!/bin/sh
 
 #---help---
-# Usage: kernel-rpi.sh <device_name>
+# Usage: 00-kernel-rpi.sh <device_name>
 #
 # Prepare kernel for booting on Raspberry Pi
 #
 # Example:
-#   enter-chroot /bootstrap/kernel.sh mmcblk0
+#   enter-chroot /bootstrap/00-kernel.sh mmcblk0
 #
 # Arguments:
 #   <device_name>   Mandatory device reference. Partition numbers are added by the script. eg mmcblk0 for RPi SD-card
@@ -47,4 +47,3 @@ cat <<EOF > /etc/fstab
 EOF
 
 apk add --no-cache linux-rpi linux-rpi4 raspberrypi-bootloader
-cd /boot/dtbs-rpi || cd /boot/overlays && find -type f \( -name "*.dtb" -o -name "*.dtbo" \) | cpio -pudm /boot

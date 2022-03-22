@@ -1,7 +1,6 @@
-on:  
-  push:
-    tags:
-      - 'v*'
+on:
+  repository_dispatch:
+    types: [alpine_release]
 
 jobs:
   build:
@@ -25,8 +24,14 @@ jobs:
         -e RUNNER_DEVICE_NAME=mmcblk0
         runner ./make-image
     
+    - name: Read Alpine Release file
+      id: getrelease
+      run: echo "::set-output name=release::$(cat dist/alpine-release)"
+
     - name: Create release
       uses: ncipollo/release-action@v1
       with:
+        tag: ${{ steps.getrelease.outputs.release }}
+        name: Release ${{ steps.getrelease.outputs.release }}
         artifacts: "dist/*.gz"
         token: ${{ secrets.GITHUB_TOKEN }}
