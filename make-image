@@ -8,7 +8,7 @@ set -xe
 
 mkdir -p dist
 
-OUTPUT_IMG="/dist/target.img"
+OUTPUT_IMG="dist/target.img"
 
 rm -Rf "$OUTPUT_IMG"
 truncate -s 2G "$OUTPUT_IMG"
