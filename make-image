@@ -92,7 +92,7 @@ unit B
 resizepart 2 $PART_END
 yes
 quit
-EOF 
+EOF
 
 losetup -d "$LOOP_DEV"
 
