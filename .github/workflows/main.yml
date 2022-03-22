@@ -32,6 +32,6 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         tag: ${{ steps.getrelease.outputs.release }}
-        name: Release ${{ steps.getrelease.outputs.release }}
+        name: Alpine Linux ${{ steps.getrelease.outputs.release }}
         artifacts: "dist/*.gz"
         token: ${{ secrets.GITHUB_TOKEN }}
