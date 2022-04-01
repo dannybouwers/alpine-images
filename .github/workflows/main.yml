@@ -1,3 +1,5 @@
+name: build-release-latest
+
 on:
   repository_dispatch:
     types: [alpine_release]
