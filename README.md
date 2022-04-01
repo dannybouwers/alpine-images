@@ -1,7 +1,11 @@
 # Alpine Raspberry PI
 This Alpine Linux image is ready to flash to an SD card for Raspberry Pi 3B, 3B+ and 4 and headless usage (i.e. without connected screen and keyboard). It is configured to be as close to Alpine Standard as possible. Additional packages, features (e.g Bluetooth, WiFi) or configuration (e.g. users) can be added via SSH access.
 
-Download the ready build image via the [Releases section](https://github.com/dannybouwers/alpine-raspberry-pi/releases)
+Download the ready build image via the [Releases section](https://github.com/dannybouwers/alpine-raspberry-pi/releases/latest)
+
+[![Downloads](https://img.shields.io/github/downloads/dannybouwers/alpine-raspberry-pi/latest/total)](https://github.com/dannybouwers/alpine-raspberry-pi/releases/latest)
+
+[![Workflow status](https://github.com/dannybouwers/alpine-raspberry-pi/actions/workflows/main.yml/badge.svg)](https://github.com/dannybouwers/alpine-raspberry-pi/actions/workflows/main.yml)
 
 ## Features
 The image is configured with:
