@@ -36,4 +36,8 @@ jobs:
         tag: ${{ steps.getrelease.outputs.release }}
         name: Alpine Linux ${{ steps.getrelease.outputs.release }}
         artifacts: "dist/*.gz"
+        allowUpdates: true
+        omitBody: true
+        removeArtifacts: true
+        commit: true
         token: ${{ secrets.GITHUB_TOKEN }}
