@@ -39,5 +39,4 @@ jobs:
         allowUpdates: true
         omitBody: true
         removeArtifacts: true
-        commit: true
         token: ${{ secrets.GITHUB_TOKEN }}
