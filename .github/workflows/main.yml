@@ -28,7 +28,7 @@ jobs:
     
     - name: Read Alpine Release file
       id: getrelease
-      run: echo "::set-output name=release::$(cat dist/alpine-release)"
+      run: echo "release=$(cat dist/alpine-release)" >> $GITHUB_OUTPUT
 
     - name: Create release
       uses: ncipollo/release-action@v1
