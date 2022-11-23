@@ -6,7 +6,7 @@ for service in devfs dmesg mdev; do
 	rc-update add $service sysinit
 done
 
-for service in modules sysctl hostname bootmisc syslog swap networking urandom; do
+for service in modules sysctl hostname bootmisc syslog swap networking seedrng; do
 	rc-update add $service boot
 done
 
