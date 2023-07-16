@@ -4,7 +4,7 @@ This Alpine Linux image is ready to flash to an SD card for Raspberry Pi 3B, 3B+
 Download the ready build image via the [Releases section](https://github.com/dannybouwers/alpine-raspberry-pi/releases/latest)
 
 [![Downloads](https://img.shields.io/github/downloads/dannybouwers/alpine-raspberry-pi/total)](https://github.com/dannybouwers/alpine-raspberry-pi/releases/latest)
-[![Workflow status](https://img.shields.io/github/workflow/status/dannybouwers/alpine-raspberry-pi/build-release-latest)](https://github.com/dannybouwers/alpine-raspberry-pi/actions/workflows/main.yml)
+[![Workflow status](https://img.shields.io/github/actions/workflow/status/dannybouwers/alpine-raspberry-pi/main.yml?branch=master)](https://github.com/dannybouwers/alpine-raspberry-pi/actions/workflows/main.yml)
 
 ## Features
 The image is configured with:
