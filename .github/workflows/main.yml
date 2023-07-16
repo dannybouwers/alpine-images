@@ -4,6 +4,9 @@ on:
   repository_dispatch:
     types: [alpine_release]
 
+env:
+  IMAGE_NAME: alpine-pi-build-runner
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,8 +14,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v1
 
-    - name: Build runner
-      run: docker build runner -t runner
+    # - name: Build runner
+    #   run: docker build runner -t runner
 
     - name: Make Raspberry Pi image
       run: >
@@ -24,7 +27,7 @@ jobs:
         -e ALPINE_MIRROR="http://dl-cdn.alpinelinux.org/alpine" 
         -e ARCH=aarch64
         -e RUNNER_DEVICE_NAME=mmcblk0
-        runner ./make-image
+        ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest ./make-image
     
     - name: Read Alpine Release file
       id: getrelease
