@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
-local __DEVICE_NAME
-
 __DEVICE_NAME="${RUNNER_DEVICE_NAME:-mmcblk0}"
 
 set -xe
@@ -47,8 +44,8 @@ IMGID="$(dd if="${OUTPUT_IMG}" skip=440 bs=1 count=4 2>/dev/null | xxd -e | cut 
 BOOT_PARTUUID="${IMGID}-01"
 ROOT_PARTUUID="${IMGID}-02"
 
-wget https://raw.githubusercontent.com/alpinelinux/alpine-chroot-install/v0.13.3/alpine-chroot-install \
-    && echo 'c3005e323029637db20ec9595243ac94bb9b2226  alpine-chroot-install' | sha1sum -c \
+wget https://raw.githubusercontent.com/alpinelinux/alpine-chroot-install/v0.14.0/alpine-chroot-install \
+    && echo 'ccbf65f85cdc351851f8ad025bb3e65bae4d5b06  alpine-chroot-install' | sha1sum -c \
     || exit 1
 
 sh ./alpine-chroot-install
