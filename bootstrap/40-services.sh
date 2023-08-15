@@ -2,6 +2,8 @@
 
 set -xe
 
+apk add --no-cache mdev-conf mdevd-openrc
+
 for service in devfs dmesg mdev; do
 	rc-update add $service sysinit
 done
