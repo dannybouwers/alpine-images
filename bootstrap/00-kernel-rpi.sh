@@ -49,4 +49,4 @@ cat <<EOF > /etc/fstab
 /dev/${DEVICE_NAME}${PARTITION_PREFIX}2  /               ext4    defaults,noatime  0       1
 EOF
 
-apk add --no-cache linux-rpi linux-rpi2 linux-rpi4 raspberrypi-bootloader
+apk add --no-cache linux-rpi linux-rpi4 raspberrypi-bootloader
