@@ -20,6 +20,9 @@ set -xe
 echo "modules=loop,squashfs,sd-mod,usb-storage root=/dev/${DEVICE_NAME}${PARTITION_PREFIX}2 rootfstype=ext4 elevator=deadline fsck.repair=yes console=tty1 rootwait quiet" > /boot/cmdline.txt
 
 cat <<EOF > /boot/config.txt
+[pi02]
+kernel=vmlinuz-rpi
+initramfs initramfs-rpi
 [pi3]
 kernel=vmlinuz-rpi
 initramfs initramfs-rpi
@@ -46,4 +49,4 @@ cat <<EOF > /etc/fstab
 /dev/${DEVICE_NAME}${PARTITION_PREFIX}2  /               ext4    defaults,noatime  0       1
 EOF
 
-apk add --no-cache linux-rpi linux-rpi4 raspberrypi-bootloader
+apk add --no-cache linux-rpi linux-rpi2 linux-rpi4 raspberrypi-bootloader
