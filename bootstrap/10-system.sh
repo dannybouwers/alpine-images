@@ -30,7 +30,7 @@ rc-update add swclock boot
 rc-update add chronyd default
 
 # device manager
-setup-devd "mdev"
+setup-devd "mdevd"
 
 # message of the day
 cat > /etc/motd <<EOF
