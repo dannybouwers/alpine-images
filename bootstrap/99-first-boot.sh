@@ -54,4 +54,4 @@ depend() {
 EOF
 
 chmod +x /etc/init.d/first-boot /usr/bin/first-boot
-rc-update add first-boot
+rc-update --quiet add first-boot

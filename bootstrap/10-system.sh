@@ -26,18 +26,18 @@ setup-keymap "${LAYOUT}" "${LAYOUT_SPEC}"
 # time
 setup-timezone -z "${TARGET_TIMEZONE}"
 apk add --no-cache chrony
-rc-update add swclock boot
-rc-update add chronyd default
+rc-update --quiet add swclock boot
+rc-update --quiet add chronyd default
 
 # device manager
 if rc-service --exists mdev ; then
     rc-service --ifstarted mdev stop
-    rc-update delete mdev sysinit || :
+    rc-update --quiet delete mdev sysinit || :
 fi
 apk add mdevd mdevd-openrc
-rc-update add mdevd sysinit
-rc-update add mdevd-init sysinit
-rc-update add hwdrivers sysinit
+rc-update --quiet add mdevd sysinit
+rc-update --quiet add mdevd-init sysinit
+rc-update --quiet add hwdrivers sysinit
 
 # message of the day
 cat > /etc/motd <<EOF

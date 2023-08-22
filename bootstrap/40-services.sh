@@ -2,18 +2,18 @@
 
 set -xe
 
-for service in devfs dmesg; do
-	rc-update add $service sysinit
+rc-update --quiet add networking boot
+rc-update --quiet add seedrng boot || rc-update --quiet add urandom boot
+svc_list="cron crond"
+if [ -e /dev/input/event0 ]; then
+	# Only enable acpid for systems with input events entries
+	# https://gitlab.alpinelinux.org/alpine/aports/-/issues/12290
+	svc_list="$svc_list acpid"
+fi
+for svc in $svc_list; do
+	if rc-service --exists $svc; then
+		rc-update --quiet add $svc
+	fi
 done
 
-for service in modules sysctl hostname bootmisc syslog swap networking seedrng; do
-	rc-update add $service boot
-done
-
-for service in acpid; do
-	rc-update add $service default
-done
-
-for service in mount-ro killprocs savecache; do
-	rc-update add $service shutdown
-done
+rc-update --quiet add swap boot
