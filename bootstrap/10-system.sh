@@ -30,7 +30,14 @@ rc-update add swclock boot
 rc-update add chronyd default
 
 # device manager
-setup-devd "mdevd"
+if rc-service --exists mdev ; then
+    rc-service --ifstarted mdev stop
+    rc-update delete mdev sysinit || :
+fi
+apk add mdevd mdevd-openrc
+rc-update add mdevd sysinit
+rc-update add mdevd-init sysinit
+rc-update add hwdrivers sysinit
 
 # message of the day
 cat > /etc/motd <<EOF
