@@ -25,8 +25,9 @@ setup-keymap "${LAYOUT}" "${LAYOUT_SPEC}"
 
 # time
 setup-timezone -z "${TARGET_TIMEZONE}"
-setup-ntp "chrony"
+apk add --no-cache chrony
 rc-update add swclock boot
+rc-update add chronyd default
 
 # device manager
 setup-devd "mdev"
