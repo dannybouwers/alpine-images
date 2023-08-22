@@ -20,22 +20,26 @@ set -xe
 echo "modules=loop,squashfs,sd-mod,usb-storage root=/dev/${DEVICE_NAME}${PARTITION_PREFIX}2 rootfstype=ext4 elevator=deadline fsck.repair=yes console=tty1 rootwait quiet" > /boot/cmdline.txt
 
 cat <<EOF > /boot/config.txt
+# do not modify this file as it will be overwritten on upgrade.
+# create and/or modify usercfg.txt instead.
+# https://www.raspberrypi.com/documentation/computers/config_txt.html
 [pi02]
-kernel=vmlinuz-rpi
-initramfs initramfs-rpi
+kernel=boot/vmlinuz-rpi
+initramfs boot/initramfs-rpi
 [pi3]
-kernel=vmlinuz-rpi
-initramfs initramfs-rpi
+kernel=boot/vmlinuz-rpi
+initramfs boot/initramfs-rpi
 [pi3+]
-kernel=vmlinuz-rpi
-initramfs initramfs-rpi
+kernel=boot/vmlinuz-rpi
+initramfs boot/initramfs-rpi
 [pi4]
 enable_gic=1
-kernel=vmlinuz-rpi4
-initramfs initramfs-rpi4
+kernel=boot/vmlinuz-rpi4
+initramfs boot/initramfs-rpi4
 [all]
 arm_64bit=1
 include usercfg.txt
+
 EOF
   
 cat <<EOF > /boot/usercfg.txt

@@ -25,9 +25,8 @@ setup-keymap "${LAYOUT}" "${LAYOUT_SPEC}"
 
 # time
 setup-timezone -z "${TARGET_TIMEZONE}"
-setup-ntp "busybox"
+setup-ntp "chrony"
 rc-update add swclock boot
-
 
 # device manager
 setup-devd "mdev"
